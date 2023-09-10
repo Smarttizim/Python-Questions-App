@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<html>
+<body class="sub_page">
+  <section class="about_section layout_padding long_section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+        </div>
+        <div class="col-md-12">
+          <div class="detail-box">
+            <div class="heading_container">
+              
+              {% for i in Quest %}
+              <h2>
+                Theme: {{ i.theme }}
+              </h2>
+              {% endfor %}
+            </div>
+            {% for a in theme %}
+            <p>
+              <b><span style="color: red;">{{ a.one_id }}- Question:</span></b> <b>{{ a.question }}</b>
+            </p>
+            {% endfor %}
+            <a href="/">
+              Back
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+{% endblock content %}

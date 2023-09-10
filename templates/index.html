@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Py Algorithms</title>
+
+
+</head>
+
+<body>
+  <!-- furniture section -->
+
+  <section class="furniture_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <span style="text-align: center !important;">
+          <h2 > 
+          Lesson Themes
+        </h2>
+        </span>
+
+      </div>
+      <div class="row">
+        {% for i in Theme %}
+        <div class="col-md-6 col-lg-4">        
+            <div class="box"> 
+            <div class="img-box">
+              <img src="{{ i.image.url }}" alt="">
+            </div>
+            <div class="detail-box">
+              <h5>
+                Theme : <b>{{ i.name }}</b>
+              </h5>
+              <div class="price_box">
+                <h6 class="price_heading">
+                  <span>Number of questions</span> {{n}}
+                </h6>
+                <a href="theme/{{i.id}}">
+                  Questions
+                </a>
+              </div>
+            </div>
+            
+        </div>
+        </div>
+        {% endfor %}  
+    </div>
+    </div>
+  </section>
+
+
+</body>
+</html>
+
+{% endblock content %}
