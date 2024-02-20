@@ -31,11 +31,12 @@ def themes_quest(request,id):
 
 class QuestView(ListView):
     model = Quest
-    context_object_name = 'Quest'
+    context_object_name = 'quests'
     template_name = 'about.html'
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['question_count'] = self.model.objects.count()
+        context['question_count'] = Quest.objects.count() 
         return context
 
 

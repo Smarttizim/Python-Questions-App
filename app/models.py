@@ -11,15 +11,11 @@ class Theme(models.Model):
         return self.name
     
 class Quest(models.Model):
+    quest_num = models.IntegerField()
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE, related_name ="themes")
     question = models.TextField()
     answer = models.TextField(null=True, blank=True)
-    one_id = models.IntegerField(null=True, blank=True, unique=True, default=0)
-    
-    # @property
-    # def one_id(self):  # noqa
-    #     return 0 + self.id
-    
+
     def __str__(self):
         return f"| {self.theme}"
 
