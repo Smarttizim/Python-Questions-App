@@ -19,7 +19,11 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
+from app.views import QuestView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('app.urls'))
-]
+    path('', include('app.urls')),
+    path('ckeditor5/upload/', QuestView.as_view(), name='ck_editor_5_upload_file'),
+    # path('ckeditor5/upload/', QuestView, name='ck_editor_5_upload_file'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
