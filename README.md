@@ -1,5 +1,5 @@
 "# Pylib" 
-# Chance Alive International Community Web Page Backend API
+# Pylib application
 
 ## Introduction
 
