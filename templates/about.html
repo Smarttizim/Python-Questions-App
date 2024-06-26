@@ -30,9 +30,14 @@
               {% for quest in quests %}
                 <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the container width is 80% and centered -->
                   <p style="text-align: left; word-wrap: break-word;">
-                    <b><span style="color: red;">Question {{ quest.quest_num }}:</span></b> {{ quest.question }}
+                    <b><span style="color: red;">Task {{ quest.quest_num }}:</span></b> {{ quest.question }}
                   </p>
                 </div>
+                {% if quest.image %}
+                  <div style="width: 80%; margin: 0 auto;">
+                  <img src="{{ quest.image.url }}" alt="Task Image" style="max-width: 100%;">
+                  </div>
+                {% endif %}
                 <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the table width is 80% and centered -->
                   <table class="table table-bordered"> <!-- Using Bootstrap table styling for responsiveness -->
                     <thead>
