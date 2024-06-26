@@ -39,10 +39,9 @@
             </div>
             {% endif %}
 
-            <br><br>
+            <!-- <br><br> -->
             {% for quest in quests %}
             <tr>
-              
               <td>
                 {% if quest.file %}
                   <a href="{{ quest.file.url }}" class="btn btn-primary" download>(ZIP) Frontend file</a>
