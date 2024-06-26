@@ -27,40 +27,57 @@
           <div class="detail-box">
             <div class="heading_container"></div>
             {% if quests %}
-              {% for quest in quests %}
-                <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the container width is 80% and centered -->
-                  <p style="text-align: left; word-wrap: break-word;">
-                    <b><span style="color: red;">Task {{ quest.quest_num }}:</span></b> {{ quest.question }}
-                  </p>
-                </div>
-                {% if quest.image %}
-                  <div style="width: 80%; margin: 0 auto;">
-                  <img src="{{ quest.image.url }}" alt="Task Image" style="max-width: 100%;">
-                  </div>
+            {% for quest in quests %}
+            <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the container width is 80% and centered -->
+              <p style="text-align: left; word-wrap: break-word;">
+                <b><span style="color: red;">Task {{ quest.quest_num }}:</span></b> {{ quest.question }}
+              </p>
+            </div>
+            {% if quest.image %}
+            <div style="width: 80%; margin: 0 auto;">
+              <img src="{{ quest.image.url }}" alt="Task Image" style="max-width: 100%;">
+            </div>
+            {% endif %}
+
+            <br><br>
+            {% for quest in quests %}
+            <tr>
+              
+              <td>
+                {% if quest.file %}
+                  <a href="{{ quest.file.url }}" class="btn btn-primary" download>Download (ZIP) Frontend</a>
+                {% else %}
+                  No book available
                 {% endif %}
-                <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the table width is 80% and centered -->
-                  <table class="table table-bordered"> <!-- Using Bootstrap table styling for responsiveness -->
-                    <thead>
-                      <tr>
-                        <th>Input</th>
-                        <th>Output</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style="background-color: #f2f2f2;">{{ quest.input }}</td> <!-- Alternating row color -->
-                        <td style="background-color: #f2f2f2;">{{ quest.output }}</td> <!-- Alternating row color -->
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-                <br>
-              {% endfor %}
+              </td>
+            </tr>
+            {% endfor %}
+
+            <br><br><br>
+            <div style="width: 80%; margin: 0 auto; margin-top:5"> <!-- Ensure the table width is 80% and centered -->
+              <table class="table table-bordered"> <!-- Using Bootstrap table styling for responsiveness -->
+                <thead>
+                  <tr>
+                    <th>Input</th>
+                    <th>Output</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="background-color: #f2f2f2;">{{ quest.input }}</td> <!-- Alternating row color -->
+                    <td style="background-color: #f2f2f2;">{{ quest.output }}</td> <!-- Alternating row color -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+            {% endfor %}
             {% else %}
-              <p>No questions found for this theme.</p>
+            <p>No questions found for this theme.</p>
             {% endif %}
             <br>
             <a href="/">Back</a>
+            
           </div>
         </div>
       </div>
@@ -69,24 +86,37 @@
 
 
   <!-- Top Button -->
-  <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+  <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-up"
+      aria-hidden="true"></i></button>
 
   <!-- Optional: Add some CSS for styling the button -->
   <style>
     /* Style the button */
     #myTopBtn {
-      display: none; /* Hidden by default */
-      position: fixed; /* Fixed position - stays at the bottom */
-      bottom: 20px; /* Place the button 20px from the bottom */
-      right: 30px; /* Place the button 30px from the right */
-      z-index: 99; /* Make sure it does not overlap */
-      border: none; /* Remove borders */
-      outline: none; /* Remove outline */
-      background-color: #38799F; /* Dark grey background */
-      color: white; /* White text */
-      cursor: pointer; /* Add a pointer cursor on hover */
-      padding: 15px; /* Some padding */
-      border-radius: 10px; /* Rounded corners */
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Fixed position - stays at the bottom */
+      bottom: 20px;
+      /* Place the button 20px from the bottom */
+      right: 30px;
+      /* Place the button 30px from the right */
+      z-index: 99;
+      /* Make sure it does not overlap */
+      border: none;
+      /* Remove borders */
+      outline: none;
+      /* Remove outline */
+      background-color: #38799F;
+      /* Dark grey background */
+      color: white;
+      /* White text */
+      cursor: pointer;
+      /* Add a pointer cursor on hover */
+      padding: 15px;
+      /* Some padding */
+      border-radius: 10px;
+      /* Rounded corners */
     }
 
     /* On hover, add a grey background color */
@@ -98,7 +128,7 @@
 
 <script>
   // When the user scrolls down 20px from the top of the document, show the button
-  window.onscroll = function() {scrollFunction()};
+  window.onscroll = function () { scrollFunction() };
 
   function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
