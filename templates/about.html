@@ -40,16 +40,12 @@
             {% endif %}
 
             <!-- <br><br> -->
-            {% for quest in quests %}
-            <tr>
-              <td>
-                {% if quest.file %}
-                  <a href="{{ quest.file.url }}" class="btn btn-primary" download>(ZIP) Frontend file</a>
-                {% else %}
-                {% endif %}
-              </td>
-            </tr>
-            {% endfor %}
+            {% if quest.file %}
+                <div style="width: 80%; margin: 0 auto;">
+                    <a href="{{ quest.file.url }}" class="btn btn-primary" download>(ZIP) Frontend file</a>
+                </div>
+            {% endif %}
+
 
             <br><br><br>
             <div style="width: 80%; margin: 0 auto; margin-top:5"> <!-- Ensure the table width is 80% and centered -->
