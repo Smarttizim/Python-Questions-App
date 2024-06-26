@@ -20,4 +20,4 @@ Python lib application is a virtual tutorial that covers intermediate and easy t
    cd Pylib
 
 ## Example photos
-![Image Description](https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTDS-NN32oWj6jIoj_Yo-XDbjXAgkh7fLKNsrdYhuxxQgdCkpxn)
+![Image Description](C:\Users\Dell\Desktop\2222.png)
