@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- contact section -->
+<section class="contact_section long_section">
+  <div class="container">
+    <h2 class="text-center">Contact Us</h2>
+    <div class="row justify-content-center">
+      {% for contact in contacts %}  <!-- Assuming 'contacts' is passed from the view -->
+      <div class="col-md-6">
+        <div class="card mx-auto">
+          <img style="height: 450px;" src="{{ contact.image.url }}" class="card-img-top" alt="Profile Image">
+          <div class="card-body text-center">
+            <h5 class="card-title">Name: {{ contact.name }}</h5>
+            <p class="card-text">Phone: {{ contact.contact }}</p>
+            <table class="table mx-auto">
+              <thead>
+                <tr>
+                  <th scope="col">Experience</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Full name</td>
+                  <td>{{ contact.name }}</td>
+                </tr>
+                <tr>
+                  <td>Description</td>
+                  <td>{{ contact.text }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="text-center">
+                    {% if contact.file %}
+                    <a href="{{ contact.file.url }}" class="btn btn-primary" download>Download File</a>
+                    {% else %}
+                    <form action="{% url 'upload_file' contact.id %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <input type="file" name="file" required>
+                      <button type="submit" class="btn btn-primary">Kitob</button>
+                    </form>
+                    {% endif %}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- end contact section -->
+
+
+<!-- footer section -->
+<footer class="footer_section">
+  <div class="container">
+    <p>&copy; <span id="displayYear"></span> All Rights Reserved By <b><a href="https://t.me/smarttizim">Smarttizim</a></b></p>
+  </div>
+</footer>
+<!-- footer section -->
+
+<!-- jQuery -->
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<!-- Custom JS -->
+<script src="{% static 'js/custom.js' %}"></script>
+
+{% endblock content %}

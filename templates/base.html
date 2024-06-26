@@ -1,0 +1,94 @@
+{% load static %}
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Py Algorithms</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+  <!-- Responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+  <!-- Optional: Add additional CSS styles specific to your application -->
+  <style>
+    /* Add your custom CSS styles here */
+  </style>
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- Header section starts -->
+    <header class="header_section long_section px-0">
+      <nav style="background-color: rgb(56, 121, 159);" class="navbar navbar-expand-lg custom_nav-container fixed-top">
+        <a class="navbar-brand" href="/">
+            {% comment %} {% for contact in contacts %}
+            <img src="{{ contact.image.url }}" alt="Logo" style="max-height: 50px;">
+            <span style="color: white; margin-left: 10px;">Python {{ contact.name }}</span>
+            {% endfor %} {% endcomment %}
+        </a>
+
+        <!-- Toggle button for mobile view -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a style="color: white;" class="nav-link" href="/">Home <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a style="color: white;" class="nav-link" href="/contact">Contact Us</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a style="color: white;" class="nav-link" href="/admin">Admin</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    </header>
+
+    <!-- Content block -->
+    {% block content %}
+
+    {% endblock content %}
+  </div>
+
+  <!-- JavaScript libraries -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+  </script>
+  <!-- End Google Map -->
+</body>
+
+</html>

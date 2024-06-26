@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+  table,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+</style>
+<html>
+
+<body class="sub_page">
+
+
+  <section class="about_section layout_padding long_section">
+    <div style="text-align: center;" class="container">
+      <div class="row justify-content-center"> <!-- Centering the content -->
+        <div class="col-md-10"> <!-- Adjusted column width for 80% content -->
+          <h2 style="text-align: center;"><b><span>Theme:</span></b> {{ theme.name }}</h2> <br>
+          <div class="detail-box">
+            <div class="heading_container"></div>
+            {% if quests %}
+              {% for quest in quests %}
+                <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the container width is 80% and centered -->
+                  <p style="text-align: left; word-wrap: break-word;">
+                    <b><span style="color: red;">Question {{ quest.quest_num }}:</span></b> {{ quest.question }}
+                  </p>
+                </div>
+                <div style="width: 80%; margin: 0 auto;"> <!-- Ensure the table width is 80% and centered -->
+                  <table class="table table-bordered"> <!-- Using Bootstrap table styling for responsiveness -->
+                    <thead>
+                      <tr>
+                        <th>Input</th>
+                        <th>Output</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="background-color: #f2f2f2;">{{ quest.input }}</td> <!-- Alternating row color -->
+                        <td style="background-color: #f2f2f2;">{{ quest.output }}</td> <!-- Alternating row color -->
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+              {% endfor %}
+            {% else %}
+              <p>No questions found for this theme.</p>
+            {% endif %}
+            <br>
+            <a href="/">Back</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Top Button -->
+  <button onclick="topFunction()" id="myTopBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+
+  <!-- Optional: Add some CSS for styling the button -->
+  <style>
+    /* Style the button */
+    #myTopBtn {
+      display: none; /* Hidden by default */
+      position: fixed; /* Fixed position - stays at the bottom */
+      bottom: 20px; /* Place the button 20px from the bottom */
+      right: 30px; /* Place the button 30px from the right */
+      z-index: 99; /* Make sure it does not overlap */
+      border: none; /* Remove borders */
+      outline: none; /* Remove outline */
+      background-color: #38799F; /* Dark grey background */
+      color: white; /* White text */
+      cursor: pointer; /* Add a pointer cursor on hover */
+      padding: 15px; /* Some padding */
+      border-radius: 10px; /* Rounded corners */
+    }
+
+    /* On hover, add a grey background color */
+    #myTopBtn:hover {
+      background-color: #38799F;
+    }
+  </style>
+</body>
+
+<script>
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("myTopBtn").style.display = "block";
+    } else {
+      document.getElementById("myTopBtn").style.display = "none";
+    }
+  }
+
+  // Function to smoothly scroll to the top of the document
+  function topFunction() {
+    // Scroll to the top with smooth behavior
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</html>
+{% endblock content %}
